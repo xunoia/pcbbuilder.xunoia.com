@@ -1,0 +1,28 @@
+{
+    "circuit_type": "high_pass_filter",
+    "description": "RC first-order high-pass filter",
+    "placeholders": {
+      "cutoff_frequency": null,  
+      "input_voltage": null
+    },
+    "components": [
+      {
+        "ref": "C1",
+        "type": "{C1_value}nF",
+        "footprint": "Capacitor_SMD:C_0603",
+        "connections": ["Vin", "Vout"]
+      },
+      {
+        "ref": "R1",
+        "type": "{R1_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Vout", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "Vin",  "from": "C1.1",   "to": "Vin" },
+      { "net": "Vout", "from": "C1.2",   "to": "R1.1" },
+      { "net": "GND",  "from": "R1.2",   "to": "GND" }
+    ]
+  }
+  

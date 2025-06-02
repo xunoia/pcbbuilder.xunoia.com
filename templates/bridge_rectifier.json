@@ -1,0 +1,49 @@
+{
+    "circuit_type": "bridge_rectifier",
+    "description": "Full-wave bridge rectifier with filter capacitor",
+    "placeholders": {
+      "input_voltage": null,
+      "filter_capacitance": null
+    },
+    "components": [
+      {
+        "ref": "D1",
+        "type": "1N4007",
+        "footprint": "Diode_THT:1N4007",
+        "connections": ["AC1", "Vplus"]
+      },
+      {
+        "ref": "D2",
+        "type": "1N4007",
+        "footprint": "Diode_THT:1N4007",
+        "connections": ["AC2", "Vplus"]
+      },
+      {
+        "ref": "D3",
+        "type": "1N4007",
+        "footprint": "Diode_THT:1N4007",
+        "connections": ["AC2", "Vminus"]
+      },
+      {
+        "ref": "D4",
+        "type": "1N4007",
+        "footprint": "Diode_THT:1N4007",
+        "connections": ["AC1", "Vminus"]
+      },
+      {
+        "ref": "C1",
+        "type": "{filter_capacitance}uF",
+        "footprint": "Capacitor_THT:Capacitor_Electrolytic",
+        "connections": ["Vplus", "Vminus"]
+      }
+    ],
+    "connections": [
+      { "net": "AC1",    "from": "D1.A",  "to": "D4.A" },
+      { "net": "AC2",    "from": "D2.A",  "to": "D3.A" },
+      { "net": "Vplus",  "from": "D1.K",  "to": "D2.K" },
+      { "net": "Vminus", "from": "D3.K",  "to": "D4.K" },
+      { "net": "Vplus",  "from": "C1.1",  "to": "Vplus" },
+      { "net": "Vminus", "from": "C1.2",  "to": "Vminus" }
+    ]
+  }
+  

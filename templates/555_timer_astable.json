@@ -1,0 +1,52 @@
+{
+    "circuit_type": "555_timer_astable",
+    "description": "555 Timer in astable (oscillator) mode",
+    "placeholders": {
+      "frequency": null 
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "NE555",
+        "footprint": "Timer_IC_ThroughHole:NE555",
+        "connections": ["DIS", "TRIG", "THRS", "OUT", "RESET", "VCC", "GND"]
+      },
+      {
+        "ref": "R1",
+        "type": "{R1_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["VCC", "DIS"]
+      },
+      {
+        "ref": "R2",
+        "type": "{R2_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["DIS", "THRS"]
+      },
+      {
+        "ref": "C1",
+        "type": "{C1_value}uF",
+        "footprint": "Capacitor_SMD:C_0805",
+        "connections": ["THRS", "GND"]
+      },
+      {
+        "ref": "C2",
+        "type": "0.01uF",
+        "footprint": "Capacitor_SMD:C_0603",
+        "connections": ["CTRL", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "VCC",  "from": "U1.VCC",  "to": "R1.1" },
+      { "net": "DIS",  "from": "U1.DIS",  "to": "R1.2" },
+      { "net": "DIS",  "from": "R1.2",    "to": "R2.1" },
+      { "net": "THRS", "from": "R2.2",    "to": "U1.THRS" },
+      { "net": "THRS", "from": "C1.1",    "to": "U1.THRS" },
+      { "net": "GND",  "from": "U1.GND",  "to": "C1.2" },
+      { "net": "GND",  "from": "U1.GND",  "to": "C2.2" },
+      { "net": "CTRL", "from": "U1.CTRL", "to": "C2.1" },
+      { "net": "GND",  "from": "U1.RESET","to": "GND" },
+      { "net": "OUT",  "from": "U1.OUT",  "to": "U1.OUT" }
+    ]
+  }
+  

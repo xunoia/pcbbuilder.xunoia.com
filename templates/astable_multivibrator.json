@@ -1,0 +1,100 @@
+{
+    "circuit_type": "astable_multivibrator",
+    "description": "Two-transistor astable multivibrator (bistable LED flasher)",
+    "placeholders": {
+      "resistor_value": null   
+    },
+    "components": [
+      {
+        "ref": "Q1",
+        "type": "2N3904",
+        "footprint": "Transistor_TO92:2N3904",
+        "connections": ["C", "B", "E"]
+      },
+      {
+        "ref": "Q2",
+        "type": "2N3904",
+        "footprint": "Transistor_TO92:2N3904",
+        "connections": ["C", "B", "E"]
+      },
+      {
+        "ref": "R1",
+        "type": "{resistor_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Q1.C", "C2.+"]
+      },
+      {
+        "ref": "R2",
+        "type": "{resistor_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Q2.C", "C1.+"]
+      },
+      {
+        "ref": "C1",
+        "type": "10uF",
+        "footprint": "Capacitor_SMD:C_0805",
+        "connections": ["Q1.B", "Q2.C"]
+      },
+      {
+        "ref": "C2",
+        "type": "10uF",
+        "footprint": "Capacitor_SMD:C_0805",
+        "connections": ["Q2.B", "Q1.C"]
+      },
+      {
+        "ref": "R3",
+        "type": "1k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Q1.B", "Q1.E"]
+      },
+      {
+        "ref": "R4",
+        "type": "1k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Q2.B", "Q2.E"]
+      },
+      {
+        "ref": "LED1",
+        "type": "LED",
+        "footprint": "LED_SMD:LED_0805",
+        "connections": ["Q1.C", "R5.1"]
+      },
+      {
+        "ref": "R5",
+        "type": "4.7k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["LED1.K", "GND"]
+      },
+      {
+        "ref": "LED2",
+        "type": "LED",
+        "footprint": "LED_SMD:LED_0805",
+        "connections": ["Q2.C", "R6.1"]
+      },
+      {
+        "ref": "R6",
+        "type": "4.7k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["LED2.K", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "VCC", "from": "Q1.C", "to": "R1.1" },
+      { "net": "VCC", "from": "Q2.C", "to": "R2.1" },
+      { "net": "Q1.C", "from": "LED1.+", "to": "Q1.C" },
+      { "net": "Q2.C", "from": "LED2.+", "to": "Q2.C" },
+      { "net": "Q1.B", "from": "C1.1",  "to": "Q1.B" },
+      { "net": "Q2.C", "from": "C1.2",  "to": "Q2.C" },
+      { "net": "Q2.B", "from": "C2.1",  "to": "Q2.B" },
+      { "net": "Q1.C", "from": "C2.2",  "to": "Q1.C" },
+      { "net": "Q1.B", "from": "R3.1",  "to": "Q1.B" },
+      { "net": "GND",  "from": "R3.2",  "to": "Q1.E" },
+      { "net": "Q2.B", "from": "R4.1",  "to": "Q2.B" },
+      { "net": "GND",  "from": "R4.2",  "to": "Q2.E" },
+      { "net": "LED1.K","from": "R5.1", "to": "R5.1" },
+      { "net": "GND",  "from": "R5.2",  "to": "GND" },
+      { "net": "LED2.K","from": "R6.1", "to": "R6.1" },
+      { "net": "GND",  "from": "R6.2",  "to": "GND" }
+    ]
+  }
+  

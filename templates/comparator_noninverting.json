@@ -1,0 +1,39 @@
+{
+    "circuit_type": "comparator_noninverting",
+    "description": "Op-amp used as a non-inverting comparator",
+    "placeholders": {
+      "reference_voltage": null,  
+      "input_signal": null,       
+      "supply_voltage": null
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "MCP6001",
+        "footprint": "Amplifier_Operational:MCP6001",
+        "connections": ["V+", "V-", "OUT"]
+      },
+      {
+        "ref": "R1",
+        "type": "10k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["V+", "{reference_voltage}"]
+      },
+      {
+        "ref": "R2",
+        "type": "10k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["V-", "{input_signal}"]
+      }
+    ],
+    "connections": [
+      { "net": "V+",  "from": "U1.V+",   "to": "{supply_voltage}" },
+      { "net": "GND", "from": "U1.V-",   "to": "GND" },
+      { "net": "V+",  "from": "R1.1",     "to": "U1.V+" },
+      { "net": "{reference_voltage}", "from": "R1.2", "to": "{reference_voltage}" },
+      { "net": "V-",  "from": "R2.1",     "to": "U1.V-" },
+      { "net": "{input_signal}", "from": "R2.2",  "to": "{input_signal}" },
+      { "net": "OUT", "from": "U1.OUT",   "to": "U1.OUT" }
+    ]
+  }
+  

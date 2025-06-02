@@ -1,0 +1,46 @@
+{
+    "circuit_type": "noninverting_amplifier",
+    "description": "Single-supply op-amp non-inverting amplifier",
+    "placeholders": {
+      "supply_voltage": null,
+      "gain": null
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "MCP6001",
+        "footprint": "Amplifier_Operational:MCP6001",
+        "connections": ["V+", "V-", "IN+", "IN-", "OUT"]
+      },
+      {
+        "ref": "R1",
+        "type": "{gain}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["OUT", "IN-"]
+      },
+      {
+        "ref": "R2",
+        "type": "1k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["IN-", "GND"]
+      },
+      {
+        "ref": "C1",
+        "type": "0.1uF",
+        "footprint": "Capacitor_SMD:C_0603",
+        "connections": ["V+", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "V+",      "from": "U1.V+",  "to": "{supply_voltage}" },
+      { "net": "GND",     "from": "U1.V-",  "to": "GND" },
+      { "net": "IN+",     "from": "U1.IN+", "to": "Vin" },
+      { "net": "OUT",     "from": "U1.OUT", "to": "R1.1" },
+      { "net": "IN-",     "from": "R1.2",   "to": "U1.IN-" },
+      { "net": "IN-",     "from": "R2.1",   "to": "U1.IN-" },
+      { "net": "GND",     "from": "R2.2",   "to": "GND" },
+      { "net": "GND",     "from": "C1.1",   "to": "U1.V-" },
+      { "net": "GND",     "from": "C1.2",   "to": "U1.V+" }
+    ]
+  }
+  

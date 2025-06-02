@@ -1,0 +1,28 @@
+{
+    "circuit_type": "voltage_divider",
+    "description": "Simple resistor divider",
+    "placeholders": {
+      "Vin": null,
+      "Vout": null
+    },
+    "components": [
+      {
+        "ref": "R1",
+        "type": "10k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Vin", "Vmid"]
+      },
+      {
+        "ref": "R2",
+        "type": "{R2_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["Vmid", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "Vin",  "from": "R1.1",  "to": "Vin" },
+      { "net": "Vmid", "from": "R1.2",  "to": "R2.1" },
+      { "net": "GND",  "from": "R2.2",  "to": "GND" }
+    ]
+  }
+  

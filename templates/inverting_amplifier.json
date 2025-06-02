@@ -1,0 +1,52 @@
+{
+    "circuit_type": "inverting_amplifier",
+    "description": "Single-supply op-amp inverting amplifier",
+    "placeholders": {
+      "supply_voltage": null,
+      "gain": null
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "MCP6001",
+        "footprint": "Amplifier_Operational:MCP6001",
+        "connections": ["V+", "V-", "IN-", "IN+", "OUT"]
+      },
+      {
+        "ref": "R1",
+        "type": "1k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["IN-", "NetGain"]
+      },
+      {
+        "ref": "R2",
+        "type": "{gain}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["NetGain", "OUT"]
+      },
+      {
+        "ref": "R3",
+        "type": "10k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["IN+", "GND"]
+      },
+      {
+        "ref": "C1",
+        "type": "0.1uF",
+        "footprint": "Capacitor_SMD:C_0603",
+        "connections": ["V+", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "V+",      "from": "U1.V+",     "to": "{supply_voltage}" },
+      { "net": "GND",     "from": "U1.V-",     "to": "GND" },
+      { "net": "IN-",     "from": "U1.OUT",    "to": "R1.1" },
+      { "net": "IN-",     "from": "R1.2",      "to": "U1.IN-" },
+      { "net": "NetGain", "from": "R2.1",      "to": "U1.OUT" },
+      { "net": "NetGain", "from": "R1.1",      "to": "U1.IN-" },
+      { "net": "GND",     "from": "R3.1",      "to": "U1.IN+" },
+      { "net": "GND",     "from": "C1.1",      "to": "U1.V-" },
+      { "net": "GND",     "from": "C1.2",      "to": "U1.V+" }
+    ]
+  }
+  

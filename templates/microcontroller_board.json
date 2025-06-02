@@ -1,0 +1,62 @@
+{
+    "circuit_type": "microcontroller_board",
+    "description": "3.3 V MCU dev board with I²C sensor",
+    "placeholders": {
+      "mcu": null,
+      "sensor": null,
+      "clock_freq": null
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "{mcu}",
+        "footprint": "MCU_Microchip:STM32F103",
+        "connections": ["VCC", "GND", "SCL", "SDA", "RESET", "XTAL1", "XTAL2"]
+      },
+      {
+        "ref": "X1",
+        "type": "{clock_freq}MHz",
+        "footprint": "Crystal_SMD:Crystal_SMD_2pins",
+        "connections": ["U1.XTAL1", "U1.XTAL2"]
+      },
+      {
+        "ref": "C1",
+        "type": "0.1uF",
+        "footprint": "Capacitor_SMD:C_0603",
+        "connections": ["U1.VCC", "GND"]
+      },
+      {
+        "ref": "U2",
+        "type": "{sensor}",
+        "footprint": "Sensor:BME280",
+        "connections": ["VCC", "GND", "SCL", "SDA"]
+      },
+      {
+        "ref": "R1",
+        "type": "4.7k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["SCL", "VCC"]
+      },
+      {
+        "ref": "R2",
+        "type": "4.7k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["SDA", "VCC"]
+      }
+    ],
+    "connections": [
+      { "net": "VCC",     "from": "U1.VCC",   "to": "C1.+" },
+      { "net": "GND",     "from": "U1.GND",   "to": "C1.-" },
+      { "net": "SCL",     "from": "U1.SCL",   "to": "R1.1" },
+      { "net": "VCC",     "from": "R1.2",     "to": "U2.VCC" },
+      { "net": "SCL",     "from": "U2.SCL",   "to": "U1.SCL" },
+      { "net": "SDA",     "from": "U1.SDA",   "to": "R2.1" },
+      { "net": "VCC",     "from": "R2.2",     "to": "U2.VCC" },
+      { "net": "SDA",     "from": "U2.SDA",   "to": "U1.SDA" },
+      { "net": "U1.XTAL1","from": "X1.1",     "to": "U1.XTAL1" },
+      { "net": "U1.XTAL2","from": "X1.2",     "to": "U1.XTAL2" },
+      { "net": "U1.RESET","from": "R3.1",     "to": "U1.RESET" },
+      { "net": "GND",     "from": "R3.2",     "to": "GND" }
+    ]
+  }
+  

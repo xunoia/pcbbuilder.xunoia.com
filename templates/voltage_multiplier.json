@@ -1,0 +1,42 @@
+{
+    "circuit_type": "voltage_multiplier",
+    "description": "Voltage doubler (Cockcroft-Walton stage)",
+    "placeholders": {
+      "input_ac": null
+    },
+    "components": [
+      {
+        "ref": "D1",
+        "type": "1N4007",
+        "footprint": "Diode_THT:1N4007",
+        "connections": ["AC", "Vplus1"]
+      },
+      {
+        "ref": "D2",
+        "type": "1N4007",
+        "footprint": "Diode_THT:1N4007",
+        "connections": ["GND", "Vplus2"]
+      },
+      {
+        "ref": "C1",
+        "type": "1uF_{input_ac}",
+        "footprint": "Capacitor_THT:Capacitor_Electrolytic",
+        "connections": ["Vplus1", "GND"]
+      },
+      {
+        "ref": "C2",
+        "type": "1uF_{input_ac}",
+        "footprint": "Capacitor_THT:Capacitor_Electrolytic",
+        "connections": ["Vplus2", "Vplus1"]
+      }
+    ],
+    "connections": [
+      { "net": "AC",    "from": "D1.A",   "to": "AC" },
+      { "net": "Vplus1","from": "D1.K",   "to": "C1.1" },
+      { "net": "GND",   "from": "C1.2",   "to": "GND" },
+      { "net": "Vplus1","from": "C2.2",   "to": "Vplus1" },
+      { "net": "Vplus2","from": "D2.K",   "to": "C2.1" },
+      { "net": "GND",   "from": "D2.A",   "to": "GND" }
+    ]
+  }
+  

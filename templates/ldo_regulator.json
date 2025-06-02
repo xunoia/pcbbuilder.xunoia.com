@@ -1,0 +1,38 @@
+{
+    "circuit_type": "ldo_regulator",
+    "description": "Linear LDO regulator (step-down)",
+    "placeholders": {
+      "input_voltage": null,
+      "output_voltage": null
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "AMS1117-3.3",
+        "footprint": "Regulator_Boards:AMS1117-3.3",
+        "params": {
+          "Vin": "{input_voltage}",
+          "Vout": "{output_voltage}"
+        }
+      },
+      {
+        "ref": "C1",
+        "type": "{input_voltage}_10uF",
+        "footprint": "Capacitor_SMD:C_0805",
+        "connections": ["Vin", "GND"]
+      },
+      {
+        "ref": "C2",
+        "type": "{output_voltage}_22uF",
+        "footprint": "Capacitor_SMD:C_0805",
+        "connections": ["Vout", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "Vin",  "from": "U1.Vin",  "to": "C1.+" },
+      { "net": "GND",  "from": "U1.GND",  "to": "C1.-" },
+      { "net": "Vout", "from": "U1.Vout", "to": "C2.+" },
+      { "net": "GND",  "from": "C2.-",     "to": "U1.GND" }
+    ]
+  }
+  

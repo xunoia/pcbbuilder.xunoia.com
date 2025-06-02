@@ -1,0 +1,60 @@
+{
+    "circuit_type": "led_blinker_555",
+    "description": "555-based LED blinker (astable) with resistor-limited LED",
+    "placeholders": {
+      "frequency": null,    
+      "led_current": null  
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "NE555",
+        "footprint": "Timer_IC_ThroughHole:NE555",
+        "connections": ["DIS", "TRIG", "THRS", "OUT", "RESET", "VCC", "GND", "CTRL"]
+      },
+      {
+        "ref": "R1",
+        "type": "{R1_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["VCC", "DIS"]
+      },
+      {
+        "ref": "R2",
+        "type": "{R2_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["DIS", "THRS"]
+      },
+      {
+        "ref": "C1",
+        "type": "{C1_value}uF",
+        "footprint": "Capacitor_SMD:C_0805",
+        "connections": ["THRS", "GND"]
+      },
+      {
+        "ref": "D1",
+        "type": "LED",
+        "footprint": "LED_SMD:LED_0805",
+        "connections": ["OUT", "D1_K"]
+      },
+      {
+        "ref": "R3",
+        "type": "{R3_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["D1_K", "GND"]
+      }
+    ],
+    "connections": [
+      { "net": "VCC",  "from": "U1.VCC",   "to": "R1.1" },
+      { "net": "DIS",  "from": "U1.DIS",   "to": "R1.2" },
+      { "net": "DIS",  "from": "R1.2",     "to": "R2.1" },
+      { "net": "THRS", "from": "R2.2",     "to": "U1.THRS" },
+      { "net": "THRS", "from": "C1.1",     "to": "U1.THRS" },
+      { "net": "GND",  "from": "U1.GND",   "to": "C1.2" },
+      { "net": "GND",  "from": "U1.RESET", "to": "GND" },
+      { "net": "GND",  "from": "U1.CTRL",  "to": "GND" },
+      { "net": "OUT",  "from": "U1.OUT",   "to": "D1.+" },
+      { "net": "D1_K","from": "D1.-",     "to": "R3.1" },
+      { "net": "GND", "from": "R3.2",     "to": "GND" }
+    ]
+  }
+  
