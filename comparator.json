@@ -1,0 +1,46 @@
+{
+    "circuit_type": "comparator",
+    "description": "Op-amp used as comparator with hysteresis (Schmitt trigger)",
+    "placeholders": {
+      "threshold_high": null, 
+      "threshold_low": null, 
+      "supply_voltage": null
+    },
+    "components": [
+      {
+        "ref": "U1",
+        "type": "MCP6001",
+        "footprint": "Amplifier_Operational:MCP6001",
+        "connections": ["V+", "V-", "OUT"]
+      },
+      {
+        "ref": "R1",
+        "type": "10k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["V+", "OUT"]
+      },
+      {
+        "ref": "R2",
+        "type": "10k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["V-", "GND"]
+      },
+      {
+        "ref": "R3",
+        "type": "{R3_value}k",
+        "footprint": "Resistor_SMD:R_0603",
+        "connections": ["V+", "V-"]
+      }
+    ],
+    "connections": [
+      { "net": "V+",  "from": "U1.V+",  "to": "{supply_voltage}" },
+      { "net": "GND", "from": "U1.V-",  "to": "GND" },
+      { "net": "OUT", "from": "U1.OUT", "to": "R1.1" },
+      { "net": "V+",  "from": "R1.2",   "to": "U1.V+" },
+      { "net": "V-",  "from": "R2.2",   "to": "GND" },
+      { "net": "V-",  "from": "R2.1",   "to": "U1.V-" },
+      { "net": "V-",  "from": "R3.2",   "to": "U1.V-" },
+      { "net": "V+",  "from": "R3.1",   "to": "U1.V+" }
+    ]
+  }
+  
