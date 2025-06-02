@@ -1,0 +1,208 @@
+{
+  "version": 20240108,
+  "generator": "tscircuit",
+  "generator_version": "1.0",
+  "general": {
+    "thickness": 1.6,
+    "legacy_teardrops": false
+  },
+  "paper": "A4",
+  "layers": [
+    {
+      "id": 0,
+      "name": "F.Cu",
+      "type": "signal"
+    },
+    {
+      "id": 31,
+      "name": "B.Cu",
+      "type": "signal"
+    },
+    {
+      "id": 32,
+      "name": "B.Adhes",
+      "type": "user",
+      "description": "B.Adhesive"
+    },
+    {
+      "id": 33,
+      "name": "F.Adhes",
+      "type": "user",
+      "description": "F.Adhesive"
+    },
+    {
+      "id": 34,
+      "name": "B.Paste",
+      "type": "user"
+    },
+    {
+      "id": 35,
+      "name": "F.Paste",
+      "type": "user"
+    },
+    {
+      "id": 36,
+      "name": "B.SilkS",
+      "type": "user",
+      "description": "B.Silkscreen"
+    },
+    {
+      "id": 37,
+      "name": "F.SilkS",
+      "type": "user",
+      "description": "F.Silkscreen"
+    },
+    {
+      "id": 38,
+      "name": "B.Mask",
+      "type": "user"
+    },
+    {
+      "id": 39,
+      "name": "F.Mask",
+      "type": "user"
+    },
+    {
+      "id": 40,
+      "name": "Dwgs.User",
+      "type": "user",
+      "description": "User.Drawings"
+    },
+    {
+      "id": 41,
+      "name": "Cmts.User",
+      "type": "user",
+      "description": "User.Comments"
+    },
+    {
+      "id": 42,
+      "name": "Eco1.User",
+      "type": "user",
+      "description": "User.Eco1"
+    },
+    {
+      "id": 43,
+      "name": "Eco2.User",
+      "type": "user",
+      "description": "User.Eco2"
+    },
+    {
+      "id": 44,
+      "name": "Edge.Cuts",
+      "type": "user"
+    },
+    {
+      "id": 45,
+      "name": "Margin",
+      "type": "user"
+    },
+    {
+      "id": 46,
+      "name": "B.CrtYd",
+      "type": "user",
+      "description": "B.Courtyard"
+    },
+    {
+      "id": 47,
+      "name": "F.CrtYd",
+      "type": "user",
+      "description": "F.Courtyard"
+    },
+    {
+      "id": 48,
+      "name": "B.Fab",
+      "type": "user"
+    },
+    {
+      "id": 49,
+      "name": "F.Fab",
+      "type": "user"
+    },
+    {
+      "id": 50,
+      "name": "User.1",
+      "type": "user"
+    },
+    {
+      "id": 51,
+      "name": "User.2",
+      "type": "user"
+    },
+    {
+      "id": 52,
+      "name": "User.3",
+      "type": "user"
+    },
+    {
+      "id": 53,
+      "name": "User.4",
+      "type": "user"
+    },
+    {
+      "id": 54,
+      "name": "User.5",
+      "type": "user"
+    },
+    {
+      "id": 55,
+      "name": "User.6",
+      "type": "user"
+    },
+    {
+      "id": 56,
+      "name": "User.7",
+      "type": "user"
+    },
+    {
+      "id": 57,
+      "name": "User.8",
+      "type": "user"
+    },
+    {
+      "id": 58,
+      "name": "User.9",
+      "type": "user"
+    }
+  ],
+  "setup": {
+    "pad_to_mask_clearance": 0,
+    "allow_soldermask_bridges_in_footprints": false,
+    "pcbplotparams": {
+      "layerselection": "0x00010fc_ffffffff",
+      "plot_on_all_layers_selection": "0x0000000_00000000",
+      "disableapertmacros": false,
+      "usegerberextensions": false,
+      "usegerberattributes": true,
+      "usegerberadvancedattributes": true,
+      "creategerberjobfile": true,
+      "svgprecision": 4,
+      "excludeedgelayer": true,
+      "plotframeref": false,
+      "viasonmask": false,
+      "mode": 1,
+      "useauxorigin": false,
+      "hpglpennumber": 1,
+      "hpglpenspeed": 20,
+      "hpglpendiameter": 15,
+      "dxfpolygonmode": true,
+      "dxfimperialunits": true,
+      "dxfusepcbnewfont": true,
+      "psnegative": false,
+      "psa4output": false,
+      "plotreference": true,
+      "plotvalue": true,
+      "plotinvisibletext": false,
+      "sketchpadsonfab": false,
+      "subtractmaskfromsilk": false,
+      "outputformat": 1,
+      "mirror": false,
+      "drillshape": 1,
+      "scaleselection": 1,
+      "outputdirectory": ""
+    }
+  },
+  "nets": [],
+  "footprints": [],
+  "segments": [],
+  "vias": []
+}

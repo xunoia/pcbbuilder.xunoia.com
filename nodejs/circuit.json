@@ -1,0 +1,73 @@
+{
+    "circuit_type": "buck_converter",
+    "components": [
+      {
+        "footprint": "Regulator_Boards:LM2676S_PowerPad",
+        "params": {
+          "Iout": "2A",
+          "Vin": "12V",
+          "Vout": "5V"
+        },
+        "ref": "U1",
+        "type": "LM2676S"
+      },
+      {
+        "connections": ["SW", "Vout"],
+        "footprint": "Inductor_SMD:L_0805",
+        "ref": "L1",
+        "type": "47uH_2A"
+      },
+      {
+        "connections": ["SW", "GND"],
+        "footprint": "Diode_SMD:BAT54",
+        "ref": "D1",
+        "type": "SR560"
+      },
+      {
+        "connections": ["Vin", "GND"],
+        "footprint": "Capacitor_SMD:C_0805",
+        "ref": "C1",
+        "type": "22uF_35V"
+      },
+      {
+        "connections": ["Vout", "GND"],
+        "footprint": "Capacitor_SMD:C_0805",
+        "ref": "C2",
+        "type": "47uF_10V"
+      }
+    ],
+    "connections": [
+      {
+        "from": "U1.Vin",
+        "net": "Vin",
+        "to": "C1.+"
+      },
+      {
+        "from": "U1.GND",
+        "net": "GND",
+        "to": "C1.-"
+      },
+      {
+        "from": "U1.SW",
+        "net": "SW",
+        "to": "L1.1"
+      },
+      {
+        "from": "L1.2",
+        "net": "Vout",
+        "to": "C2.+"
+      },
+      {
+        "from": "L1.2",
+        "net": "GND",
+        "to": "C2.-"
+      },
+      {
+        "from": "U1.Vout",
+        "net": "Vout",
+        "to": "C2.+"
+      }
+    ],
+    "description": "Step-down (buck) DC–DC converter"
+  }
+  

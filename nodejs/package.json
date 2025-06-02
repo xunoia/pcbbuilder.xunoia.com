@@ -1,0 +1,26 @@
+{
+  "name": "kicad-json-converter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node convert.js"
+  },
+  "dependencies": {
+    "@tscircuit/soup": "^0.0.73",
+    "@tscircuit/soup-util": "^0.0.41",
+    "kicad-converter": "^0.0.7",
+    "zod": "^3.25.42"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "main": "convert.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
